@@ -41,7 +41,7 @@ const ResturantMenu = () => {
       <hr />
       <div>
         {resturantMenu[1].map((item, index) => {
-          return <FoodItem item={item} index={index} />;
+          return <FoodItem item={item} key={index} />;
         })}
       </div>
     </>

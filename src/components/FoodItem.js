@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { imageUrl } from "../utils/config";
 import { addItem } from "../utils/CartSlice";
-const FoodItem = ({ item, index }) => {
+const FoodItem = ({ item }) => {
   const dispatch = useDispatch();
   const handelAddItem = (item) => {
     dispatch(addItem(item));
   };
   const [show, setShow] = useState(false);
   return (
-    <div key={index}>
-      <div className="h1ButtonCombo" key={index}>
+    <div>
+      <div className="h1ButtonCombo">
         <h2>{item.title}</h2>
         {!show && (
           <button className="btn" onClick={() => setShow(true)}>
@@ -31,7 +31,7 @@ const FoodItem = ({ item, index }) => {
           let finalPrice = defaultPrice ? defaultPrice : price;
           return (
             <div key={food?.card?.info?.id} className="itemConatiner">
-              <div className="namePrice" key={food?.card?.info?.id}>
+              <div className="namePrice">
                 <h4>{food?.card?.info?.name}</h4>
                 <h5>Price:{finalPrice / 100}</h5>
                 <h5>

@@ -1,5 +1,8 @@
+import { useDispatch, useSelector } from "react-redux";
+import { decreseQuantity, increaseQuantity } from "../utils/CartSlice";
 import { imageUrl } from "../utils/config";
 const CartItem = ({ itemList }) => {
+  const dispatch = useDispatch();
   console.log(itemList);
   let price = itemList?.price;
   let defaultPrice = itemList?.defaultPrice;
@@ -12,9 +15,13 @@ const CartItem = ({ itemList }) => {
       </div>
       <div className="cartItemNamePic">
         <div className="cartBtnFlex">
-          <button>-</button>
-          <h5>1</h5>
-          <button>+</button>
+          <button onClick={() => {
+            dispatch(decreseQuantity(itemList.id))
+          }}>-</button>
+          <h5>{itemList.quantity}</h5>
+          <button onClick={() => {
+            dispatch(increaseQuantity(itemList.id))
+          }}>+</button>
         </div>
         <h5>Price:{finalPrice / 100}</h5>
       </div>

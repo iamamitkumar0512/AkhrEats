@@ -8,7 +8,6 @@ const CartPage = () => {
   const handelClearCart = () => {
     dispatch(clearCart());
   };
-  console.log(cartItems);
   return (
     <div>
       <div className="h1ButtonCombo">
@@ -23,8 +22,7 @@ const CartPage = () => {
       </div>
       {cartItems.length
         ? cartItems.map((item) => {
-            console.log(item.card.info);
-            return <CartItem itemList={item.card.info}></CartItem>;
+            return <CartItem itemList={item}></CartItem>;
           })
         : ""}
     </div>
