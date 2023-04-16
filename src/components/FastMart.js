@@ -28,35 +28,32 @@ const MartSection = ({ id, isVisibel, onShow }) => {
 
 const FastMart = () => {
   const [visibelSection, setVisibelSection] = useState("about");
+  const [data, setData] = useState([
+    {
+      id: "about"
+    },
+    {
+      id: "contact"
+    },
+    {
+      id: "help"
+    }
+  ])
   return (
     <>
-      <MartSection
-        id="about"
-        isVisibel={visibelSection === "about"}
+    {data.map((one) => {
+      return (
+        <MartSection
+        id={one.id}
+        isVisibel={visibelSection === one.id}
         onShow={() =>
-          visibelSection === "about"
+          visibelSection === one.id
             ? setVisibelSection(false)
-            : setVisibelSection("about")
+            : setVisibelSection(one.id)
         }
       />
-      <MartSection
-        id="contact"
-        isVisibel={visibelSection === "contact"}
-        onShow={() =>
-          visibelSection === "contact"
-            ? setVisibelSection(false)
-            : setVisibelSection("contact")
-        }
-      />
-      <MartSection
-        id="help"
-        isVisibel={visibelSection === "help"}
-        onShow={() =>
-          visibelSection === "help"
-            ? setVisibelSection(false)
-            : setVisibelSection("help")
-        }
-      />
+      )
+    })}
     </>
   );
 };
