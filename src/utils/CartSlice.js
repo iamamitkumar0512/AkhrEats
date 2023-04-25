@@ -66,7 +66,7 @@ const CartSlice = createSlice({
     updateCartRefresh: (state) => {
       const dataOrderValue = JSON.parse(localStorage.getItem("orderValue"));
       const dataItems = JSON.parse(localStorage.getItem("items"));
-      state.items = dataItems;
+      state.items = dataItems || [];
       state.orderValue = dataOrderValue;
       // console.log(dataOrderValue, dataItems);
     },
