@@ -29,6 +29,7 @@ import { Provider } from "react-redux";
 import store from "./utils/store";
 import CartPage from "./components/CartPage";
 import PaymentPage from "./components/PaymentPage";
+import Prompt from "./components/Prompt";
 
 const AppLayout = () => {
   // const [user, setUser] = useState();
@@ -44,6 +45,7 @@ const AppLayout = () => {
   };
   return (
     <Provider store={store}>
+      <Prompt />
       <userConetxt.Provider
         value={{
           user: user,
